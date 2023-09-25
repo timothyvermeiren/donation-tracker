@@ -1,0 +1,40 @@
+{% extends "layouts/base_kotk.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- Listing available audio/media here so we benefit from static, then using these vars in JS later. -->
+    <script>
+        const audioSamples = [
+            "{% static '/media/fanfare.wav' %}",
+            "{% static '/media/cheer1.wav' %}",
+            "{% static '/media/cheer2.wav' %}",
+            "{% static '/media/charge.wav' %}",
+            "{% static '/media/airhorn.mp3' %}"
+        ];
+    </script>
+
+    <div class="container-fluid p-0">
+        <div class="row w-100 p-0 m-0">
+            <div class="col-12 w-100 p-0 m-0">
+                <div id="header" class="header w-100 text-center m-0 pb-2">
+                    <p class="m-0">Weit steunt Kom Op Tegen Kanker</p>
+                </div>
+                <div id="giften" class="w-100 text-center">
+
+                    {% if total_amount %}
+                    <p class="mt-4 micro-text">Totaal giften tot nu toe:</p>
+                    <h1 class="mt-4 mega-text animate__animated animate__tada" id="total-donations-full">&euro; <span id="total-donations">{{ total_amount }}</span></h1>
+                    {% else %}
+                    <h2>Geen</h2>
+                    {% endif %}
+
+                    <audio id="audio" preload="auto" loop="False" src="{% static '/media/fanfare.wav' %}"></audio>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static '/js/donations.js' %}"></script>
+
+{% endblock content %} 

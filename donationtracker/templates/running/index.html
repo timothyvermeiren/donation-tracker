@@ -1,0 +1,49 @@
+{% extends "layouts/base_kotk.html" %}
+{% load static %}
+{% block content %}
+
+    <script>
+        let csrf_token = "{{ csrf_token }}";
+    </script>
+
+    <div class="container-fluid p-0">
+        <div class="row w-100 p-0 m-0">
+            <div class="col-12 w-100 p-0 m-0">
+                <div id="header" class="header w-100 text-center m-0 pb-2">
+                    <p class="m-0">Weit steunt Kom Op Tegen Kanker</p>
+                </div>
+                <div id="running-tracker" class="w-100">
+
+                    <div class="">
+                        {% if teams %}
+                            {% for team in teams %}
+                                <div class="card float-left" style="width: 18rem;">
+                                    <div class="card-header">
+                                        <span class="team-name">{{ team.team.id }} | {{ team.name }}</span>
+                                        <span class="team-laps">{{ team.total_laps }}</span>
+                                    </div>
+                                    {% if team.participants %}
+                                    <ul class="list-group list-group-flush">
+                                        {% for participant in team.participants %}
+                                        <li class="list-group-item">
+                                            <div class="participant" id="participant-id-{{participant.participant.id}}">
+                                                <span class="participant-name">{{ participant.participant.number }} | {{ participant.name }}</span>
+                                                <span class="participant-laps">{{ participant.laps }}</span>
+                                            </div>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static '/js/running.js' %}"></script>
+
+{% endblock content %} 

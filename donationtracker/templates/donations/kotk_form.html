@@ -1,0 +1,52 @@
+{% extends "layouts/base_kotk.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- "Inline" variables we can use in donations.js -->
+    <script>
+        let firstName = "{{ first_name }}";
+        let lastName = "{{ last_name }}";
+        let amount = "{{ amount }}";
+    </script>
+
+    <!-- Scripts used for x-frame-bypass (https://github.com/niutech/x-frame-bypass) -->
+    <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
+    <script type="module" src="{% static '/plugins/x-frame-bypass/js/x-frame-bypass.js' %}"></script>
+
+    <div id="header" class="header w-100 text-center m-0 pb-2">
+        <p class="m-0">Weit steunt Kom Op Tegen Kanker</p>
+    </div>
+
+    
+    <!-- Back button -->
+    <div id="backButton" onclick="history.back()">
+        <p style="margin-top: -12px;">&lsaquo;</p>
+    </div>
+
+    <style>
+        #backButton {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #666666;
+            color: #ddaf2d;
+            font-size: 36pt;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+
+
+    <div class="form-float-container">
+
+    <iframe id="kotkForm" is="x-frame-bypass" src="https://www.komoptegenkanker.be/de-100km-run/doe-een-gift?team_id=340141860"></iframe>
+    <!-- https://www.komoptegenkanker.be/de-100km-run/doe-een-gift?team_id=340141860 -->
+
+    </div>
+
+    <script src="{% static '/js/donations.js' %}"></script>
+
+{% endblock content %} 

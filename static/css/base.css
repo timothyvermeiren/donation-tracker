@@ -1,0 +1,171 @@
+/* Donations view and form */
+
+body {
+	font-family: 'Signika Negative', sans-serif;
+	background: #666666;
+	color: #e4ae2d;
+}
+
+#header {
+	background: #e4ae2d;
+	font-size: 36pt;
+	color: #000;
+}
+
+.micro-text {
+	font-size: 20pt;
+	color: #ffffff;
+}
+
+.kilo-text {
+	font-size: 80pt;
+	color: #e4ae2d;
+	text-align: center;
+	margin-top: 60px;
+}
+
+.mega-text {
+	font-size: 200pt;
+	color: #e4ae2d;
+}
+
+.form-float-container {
+    /* border: 3px solid #fff; */
+    padding: 20px;
+}
+
+.form-float-child-q {
+    width: 25%;
+    float: left;
+    padding: 20px;
+    /* border: 2px solid red; */
+}  
+
+.form-float-child-h {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    /* border: 2px solid red; */
+}
+
+.form-right {
+	padding-left: 75px;
+	padding-right: 75px;
+}
+
+
+/* Knob for input */
+
+input-knob {
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    display: block;
+    border-radius: 100%;
+    box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.5);
+    background: #ddae2d33;
+}
+  
+input-knob::part(rotator) {
+    box-sizing: border-box;
+    width: 250px;
+    height: 250px;
+    background: #ddae2d33;
+    border: 1rem double #ddae2d;
+    border-bottom: 1rem solid #ddae2d;
+    border-radius: 100%;
+}
+
+input-knob.fallback>span.fallback {
+    display: block;
+    box-sizing: border-box;
+    background: #ddae2d33;
+    border: 1rem double #ddae2d;
+    border-bottom: 1rem solid #ddae2d;
+    border-radius: 100%;
+    width: 250px;
+    height: 250px;
+}
+
+.mark {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font: bold 200% monospace;
+    color: #ddae2d;
+	background: rgba(0,0,0,0);
+}
+
+/* KotK form iframe */
+#kotkForm {
+    width: 100%;
+    height: 100%;
+    margin: 0px 0px 0px 0px;
+}
+
+/* Running */
+
+.card {
+    margin: 5px;
+}
+
+.card-header {
+    color: #000;
+}
+
+.team-name {
+    color: #000;
+}
+
+.team-laps {
+    color: #e4ae2d;
+    float: right;
+}
+
+.participant-name {
+    color: #666;
+}
+
+.participant-laps {
+    color: #e4ae2d;
+    float: right;
+}
+
+/* Messages */
+ .message {
+	position: absolute;
+	top: 20px;
+	z-index: 2023;
+	width: 500px;
+	left: 0;
+	right: 0;
+	border-radius: 10px;
+	box-shadow: 3px 3px 4px 0px rgba(50, 50, 50, 0.75);
+	color: white;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	text-align: center;
+}
+
+/*
+ * Give the various message types the correct colors
+ */
+.message.success {
+	background-color: #54babb;
+}
+
+.message.error {
+	background-color: #e60050;
+}
+
+.message.warning {
+	background-color: #f7a000;
+}
+
+.message.info {
+	background-color: #85c9e8;
+}

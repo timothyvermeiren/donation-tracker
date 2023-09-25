@@ -1,0 +1,55 @@
+{% extends "layouts/base_kotk.html" %}
+{% load static %}
+{% block content %}
+
+    <div id="header" class="header w-100 text-center m-0 pb-2">
+        <p class="m-0">Weit steunt Kom Op Tegen Kanker</p>
+    </div>
+
+    <div class="form-float-container w-100">
+
+        <form class="w-100" action="{% url 'donations:donate' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+                <div class="row w-100">
+
+                <div id="amount-preview-area" class="form-float-child-h">
+                    <p class="kilo-text">&euro; <span id="amount-preview">100</span></p>
+                </div>
+                
+                <div id="input-knob" class="form-float-child-q">
+                    <label for="amount" class="mt-2">Bedrag</label>
+                    <!-- <input type="text" name="amount" id="amount" class="form-control input-lg" placeholder="50"> -->
+                    <input-knob value="50" scale="50" min="5" max="500" name="amount-knob" id="amount-knob">
+                        <div class="mark">▲</div>
+                    </input-knob>
+                    <input type="hidden" id="amount" name="amount" value="50">
+                </div>
+
+                </div>
+
+                <div class="row w-100">
+
+                    <div id="input-details" class="row w-100 ml-3">
+                        <div class="col-5">
+                            <label for="firstName" class="mt-3">Voornaam</label>
+                            <input type="text" name="firstName" id="firstName" class="form-control input-lg" placeholder="Jeanke">
+                        </div>
+                        <div class="col-5">
+                            <label for="lastName" class="mt-3">Naam</label>
+                            <input type="text" name="lastName" id="lastName" class="form-control input-lg" placeholder="Van Omdenhoek">
+                        </div>
+                        <div class="col-2">
+                            <input type="submit" value="Gift maken" class="btn btn-warning mt-5 w-100">
+                        </div>
+                    </div>
+
+                </div>
+        </form>
+
+    </div>
+
+    <script src="{% static '/js/donations.js' %}"></script>
+
+{% endblock content %} 
